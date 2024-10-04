@@ -47,12 +47,12 @@ const useReceiveOrder = common_vendor.defineStore({
     // 开启接单服务
     startOrderService() {
       return __async(this, null, function* () {
-        console.log("开启接单服务");
+        console.log("Start order service");
         yield api_order_index.startOrderService();
         common_vendor.index.getLocation({
           type: "gcj02",
           success: function(res) {
-            console.log("开启接单服务----更新位置", res);
+            console.log("Start order service ---- Update location", res);
             api_order_index.updateDriverLocation({
               longitude: res.longitude,
               latitude: res.latitude
@@ -67,14 +67,14 @@ const useReceiveOrder = common_vendor.defineStore({
     // 停止接单服务
     stopOrderService() {
       return __async(this, null, function* () {
-        console.log("停止接单服务");
+        console.log("Stop order service");
         yield api_order_index.stopOrderService();
       });
     },
     // 查询新订单
     getNewOrder() {
       return __async(this, null, function* () {
-        console.log("查询新订单");
+        console.log("Check new orders");
         const res = yield api_order_index.getNewOrder();
         this.orderList.push(...res.data);
       });
@@ -82,7 +82,7 @@ const useReceiveOrder = common_vendor.defineStore({
     //   司机抢单
     grabOrder(orderId) {
       return __async(this, null, function* () {
-        console.log("司机抢单");
+        console.log("Driver grabs order");
         yield api_order_index.grabOrder(orderId || this.currentOrder.orderId);
       });
     },
@@ -112,7 +112,7 @@ const useReceiveOrder = common_vendor.defineStore({
     }) {
       if (!this.orderList.length)
         return;
-      console.log("切换当前订单");
+      console.log("Switch current order");
       this.currentOrder = this.orderList.shift() || this.currentOrder;
       callBack();
     },

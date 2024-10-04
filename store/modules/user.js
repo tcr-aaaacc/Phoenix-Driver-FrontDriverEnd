@@ -29,7 +29,7 @@ const useUserStore = common_vendor.defineStore({
     user: {}
   }),
   actions: {
-    // 微信登陆
+    // 微信登陆   WeChat login
     loginWithWechat(callback) {
       common_vendor.index.login({
         provider: "weixin",
@@ -43,7 +43,7 @@ const useUserStore = common_vendor.defineStore({
         }
       });
     },
-    // 获取token
+    // 获取token   get token
     getToken(code) {
       return __async(this, null, function* () {
         const res = yield api_user_index.getLogin(code);
@@ -53,7 +53,7 @@ const useUserStore = common_vendor.defineStore({
         }
       });
     },
-    // 获取用户信息
+    // 获取用户信息   get user informations
     getUserInfo() {
       return __async(this, null, function* () {
         const res = yield api_user_index.getUserInfo();
@@ -75,32 +75,32 @@ const useUserStore = common_vendor.defineStore({
         }
       });
     },
-    // 更新用户信息
+    // 更新用户信息   update user information
     updateUserInfo(userInfo) {
       return __async(this, null, function* () {
         yield api_user_index.updateUserInfo(userInfo);
       });
     },
-    // 退出登陆
+    // 退出登陆   logout
     logout() {
       this.clearAllOfUser();
       this.goHome();
     },
-    // 清空用户所有信息
-    clearAllOfUser() {
+    // 清空用户所有信息   Clear all user information 
+    clearAllOfUser() { 
       utils_storage.removeToken();
       utils_storage.removeUser();
       this.user = {};
       this.token = "";
     },
-    //   去首页
+    //   去首页   home page
     goHome() {
       common_vendor.index.switchTab({
         url: "/pages/index/index"
       });
     }
   },
-  // 设置为true，缓存state
+  // 设置为true，缓存state   Set to true to cache state
   persist: {
     storage: {
       getItem: common_vendor.index.getStorageSync,

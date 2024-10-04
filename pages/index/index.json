@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "首页",
+  "navigationBarTitleText": "Home",
   "navigationStyle": "custom",
   "titlePenetrate": "YES",
   "usingComponents": {

@@ -1172,7 +1172,7 @@ function initWrapper(protocols2) {
             keyOption = keyOption(fromArgs[key], fromArgs, toArgs);
           }
           if (!keyOption) {
-            console.warn(`微信小程序 ${methodName} 暂不支持 ${key}`);
+            console.warn(`WeChat Mini Program ${methodName} does not support ${key} yet`);
           } else if (isString$2(keyOption)) {
             toArgs[keyOption] = fromArgs[key];
           } else if (isPlainObject$4(keyOption)) {
@@ -1208,7 +1208,7 @@ function initWrapper(protocols2) {
     const protocol = protocols2[methodName];
     if (!protocol) {
       return function() {
-        console.error(`微信小程序 暂不支持${methodName}`);
+        console.error(`WeChat Mini Program does not support ${methodName} yet`);
       };
     }
     return function(arg1, arg2) {
@@ -1522,7 +1522,7 @@ function initGetProvider(providers) {
       isFunction$2(success) && success(res);
     } else {
       res = {
-        errMsg: "getProvider:fail:服务[" + service + "]不存在"
+        errMsg: "getProvider:fail: Service[" + service + "] does not exist"
       };
       isFunction$2(fail) && fail(res);
     }
@@ -11638,18 +11638,18 @@ var clone = function() {
 }();
 class Request {
   /**
-   * @param {Object} arg - 全局配置
-   * @param {String} arg.baseURL - 全局根路径
-   * @param {Object} arg.header - 全局header
-   * @param {String} arg.method = [GET|POST|PUT|DELETE|CONNECT|HEAD|OPTIONS|TRACE] - 全局默认请求方式
-   * @param {String} arg.dataType = [json] - 全局默认的dataType
-   * @param {String} arg.responseType = [text|arraybuffer] - 全局默认的responseType。支付宝小程序不支持
-   * @param {Object} arg.custom - 全局默认的自定义参数
-   * @param {Number} arg.timeout - 全局默认的超时时间，单位 ms。默认60000。H5(HBuilderX 2.9.9+)、APP(HBuilderX 2.9.9+)、微信小程序（2.10.0）、支付宝小程序
-   * @param {Boolean} arg.sslVerify - 全局默认的是否验证 ssl 证书。默认true.仅App安卓端支持（HBuilderX 2.3.3+）
-   * @param {Boolean} arg.withCredentials - 全局默认的跨域请求时是否携带凭证（cookies）。默认false。仅H5支持（HBuilderX 2.6.15+）
-   * @param {Boolean} arg.firstIpv4 - 全DNS解析时优先使用ipv4。默认false。仅 App-Android 支持 (HBuilderX 2.8.0+)
-   * @param {Function(statusCode):Boolean} arg.validateStatus - 全局默认的自定义验证器。默认statusCode >= 200 && statusCode < 300
+   * @param {Object} arg - Global Configuration
+   * @param {String} arg.baseURL - Global root path
+   * @param {Object} arg.header -  Global header
+   * @param {String} arg.method = [GET|POST|PUT|DELETE|CONNECT|HEAD|OPTIONS|TRACE] - Global default request method
+   * @param {String} arg.dataType = [json] - Global default dataType
+   * @param {String} arg.responseType = [text|arraybuffer] - The global default responseType. Not supported by Alipay Mini Program
+   * @param {Object} arg.custom - Global default custom parameters
+   * @param {Number} arg.timeout - The global default timeout, in ms. The default value is 60000. H5 (HBuilderX 2.9.9+), APP (HBuilderX 2.9.9+), WeChat Mini Program (2.10.0), Alipay Mini Program
+   * @param {Boolean} arg.sslVerify - The global default is whether to verify the ssl certificate. Default is true. Only supported by the Android version of the App (HBuilderX 2.3.3+)
+   * @param {Boolean} arg.withCredentials - Whether to carry credentials (cookies) when making cross-domain requests by global default. Default is false. Only supported by H5 (HBuilderX 2.6.15+)
+   * @param {Boolean} arg.firstIpv4 - Use ipv4 first when performing full DNS resolution. Default is false. Only supported by App-Android (HBuilderX 2.8.0+)
+   * @param {Function(statusCode):Boolean} arg.validateStatus - Global default custom validator. Default statusCode >= 200 && statusCode < 300
    */
   constructor(arg = {}) {
     if (!isPlainObject(arg)) {
@@ -11686,13 +11686,13 @@ class Request {
   }
   /**
    * @Function
-   * @param {Object} config - 请求配置项
-   * @prop {String} options.url - 请求路径
-   * @prop {Object} options.data - 请求参数
-   * @prop {Object} [options.responseType = config.responseType] [text|arraybuffer] - 响应的数据类型
-   * @prop {Object} [options.dataType = config.dataType] - 如果设为 json，会尝试对返回的数据做一次 JSON.parse
-   * @prop {Object} [options.header = config.header] - 请求header
-   * @prop {Object} [options.method = config.method] - 请求方法
+   * @param {Object} config - Request configuration items
+   * @prop {String} options.url - Request path
+   * @prop {Object} options.data - Request Parameters
+   * @prop {Object} [options.responseType = config.responseType] [text|arraybuffer] - Response data type
+   * @prop {Object} [options.dataType = config.dataType] - If set to json, it will try to do a JSON.parse on the returned data
+   * @prop {Object} [options.header = config.header] - Request header
+   * @prop {Object} [options.method = config.method] - Request method
    * @returns {Promise<unknown>}
    */
   request(config = {}) {

@@ -110,7 +110,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           margin: [50],
           shadow: 0,
           size: "large",
-          label: "退出登录"
+          label: "Logout"
         })
       } : {
         g: common_vendor.p({

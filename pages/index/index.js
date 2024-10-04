@@ -59,9 +59,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const receiveOrder = store_modules_receiveOrder.useReceiveOrder();
     const descriptionsOrder = common_vendor.computed(() => {
       return [
-        { label: "预估里程", value: (receiveOrder == null ? void 0 : receiveOrder.currentOrder.expectDistance) + "KM" },
-        { label: "距离客人距离", value: (receiveOrder == null ? void 0 : receiveOrder.currentOrder.distance) + "KM" },
-        { label: "预估费用", value: (receiveOrder == null ? void 0 : receiveOrder.currentOrder.expectAmount) + "元" }
+        { label: "Estimated mileage", value: (receiveOrder == null ? void 0 : receiveOrder.currentOrder.expectDistance) + "KM" },
+        { label: "Distance from guests", value: (receiveOrder == null ? void 0 : receiveOrder.currentOrder.distance) + "KM" },
+        { label: "Estimated cost", value: (receiveOrder == null ? void 0 : receiveOrder.currentOrder.expectAmount) + "元" }
       ];
     });
     const map = common_vendor.index.createMapContext("map");
@@ -95,11 +95,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       var _a;
       (_a = popRef.value) == null ? void 0 : _a.hide();
       timeCountdown.stopAndReset();
-      console.log("关闭弹出层closePopupHandle");
+      console.log("closePopupHandle");
     }
     function confirmTakingOrdersHandle() {
       return __async(this, null, function* () {
-        console.log("确认抢单confirmTakingOrdersHandle");
+        console.log("confirmTakingOrdersHandle");
         yield receiveOrder.grabOrder();
         yield receiveOrder.stopOrderService();
         yield cancelTakingOrdersHandle();
@@ -119,7 +119,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const isTakingOrders = common_vendor.ref(false);
     function startTakingOrdersHandle() {
       return __async(this, null, function* () {
-        console.log("开始接单startTakingOrdersHandle");
+        console.log("startTakingOrdersHandle");
         const isAllowTakeOrder = yield isTakeOrder();
         console.log("isAllowTakeOrder", isAllowTakeOrder);
         if (!isAllowTakeOrder)
@@ -127,8 +127,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         const { data } = yield api_order_index.searchDriverCurrentOrder();
         if (data.isHasCurrentOrder) {
           common_vendor.index.showModal({
-            title: "提示",
-            content: "您有未完成的订单，是否去往导航页？",
+            title: "hint",
+            content: "You have unfinished orders, do you want to go to the navigation page?",
             success: function(res) {
               if (res.confirm) {
                 common_vendor.index.navigateTo({
@@ -163,16 +163,16 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         console.log("resList----", resList);
         const driverLoginInfo = resList[0].data;
         if (driverLoginInfo.authStatus === 0) {
-          yield common_vendor.index.showToast({ title: "未认证，跳转认证页面", icon: "none" });
+          yield common_vendor.index.showToast({ title: "Not authenticated, jump to authentication page", icon: "none" });
           setTimeout(() => {
             common_vendor.index.navigateTo({
               url: "/pages/verification/verification"
             });
           }, 1e3);
         } else if (driverLoginInfo.authStatus === 1) {
-          yield common_vendor.index.showToast({ title: "正在审核中", icon: "none" });
+          yield common_vendor.index.showToast({ title: "Under review", icon: "none" });
         } else if (driverLoginInfo.authStatus === -1) {
-          yield common_vendor.index.showToast({ title: "认证未通过，跳转认证页面重新认证", icon: "none" });
+          yield common_vendor.index.showToast({ title: "If the authentication fails, please go to the authentication page and reauthenticate.", icon: "none" });
           setTimeout(() => {
             common_vendor.index.navigateTo({
               url: "/pages/verification/verification"
@@ -184,7 +184,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
             if (isFaceRecognition.data) {
               return true;
             } else {
-              yield common_vendor.index.showToast({ title: "今日未曾人脸识，跳转识别", icon: "none" });
+              yield common_vendor.index.showToast({ title: "Today, there is no face recognition, jump recognition", icon: "none" });
               setTimeout(() => {
                 common_vendor.index.navigateTo({
                   url: "/pages/facialIdentification/facialIdentification"
@@ -192,7 +192,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
               }, 1e3);
             }
           } else {
-            yield common_vendor.index.showToast({ title: "未录入人脸信息，跳转录入", icon: "none" });
+            yield common_vendor.index.showToast({ title: "No face information has been entered, skip to enter", icon: "none" });
             setTimeout(() => {
               common_vendor.index.navigateTo({
                 url: "/pages/facialIdentification/facialIdentification?creatFaceModel=true"
@@ -208,8 +208,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         const { data } = yield api_order_index.searchDriverCurrentOrder();
         if (data.isHasCurrentOrder) {
           common_vendor.index.showModal({
-            title: "提示",
-            content: "您有未完成的订单，是否去往导航页？",
+            title: "hint",
+            content: "You have unfinished orders, do you want to go to the navigation page?",
             success: function(res) {
               if (res.confirm) {
                 common_vendor.index.navigateTo({

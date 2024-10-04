@@ -12,7 +12,7 @@ const useTheme = () => {
     color = color.trim().toLocaleUpperCase();
     if (!color) {
       common_vendor.index.showToast({
-        title: "颜色不能为空"
+        title: "Color cannot be empty"
       });
     }
     tmPiniaStore.setTmVuetifyAddTheme(`name-${color}`, color);

@@ -53,11 +53,11 @@ class RecorderManagerClass {
   }
   //   停止录音
   stopRecord() {
-    console.log("停止录音-1");
+    console.log("Stop recording-1");
     if (!this.isRecording) {
       return;
     }
-    console.log("停止录音-2");
+    console.log("Stop recording-2");
     this.isRecording = false;
     this.endTime = (/* @__PURE__ */ new Date()).getTime();
     this.recorderManager.stop();

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "订单详情",
+  "navigationBarTitleText": " Order Detail",
   "usingComponents": {
     "tm-divider": "../../tmui/components/tm-divider/tm-divider",
     "tm-cell": "../../tmui/components/tm-cell/tm-cell",

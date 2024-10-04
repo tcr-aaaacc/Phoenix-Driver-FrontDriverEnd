@@ -97,12 +97,12 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     }
     function reachTheStartingPointHandle() {
       return __async(this, null, function* () {
-        console.log("到达乘客起点-reachTheStartingPointHandle");
+        console.log("Arrive at the passenger starting point-reachTheStartingPointHandle");
         yield api_order_index.updateOrderStatusToDriverArrived(takeCarInfo.orderInfo.orderId);
       });
     }
     function inputCarInfoHandle() {
-      console.log("录入车辆信息-inputCarInfoHandle");
+      console.log("Enter vehicle information-inputCarInfoHandle");
       common_vendor.index.navigateTo({
         url: `/pages/collectCarInfo/collectCarInfo?orderId=${takeCarInfo.orderInfo.orderId}`
       });
@@ -115,7 +115,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       });
     }
     function reachTheEndingPointHandle() {
-      console.log("到达乘客终点-reachTheEndingPointHandle");
+      console.log("Arrival at passenger destination-reachTheEndingPointHandle");
       takeCarInfo.stopQueryOrderStatus();
       takeCarInfo.stopQuerySendRecord();
       common_vendor.index.redirectTo({
@@ -123,7 +123,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       });
     }
     function openExternalMapHandle(params) {
-      console.log("打开外部地图-openExternalMapHandle");
+      console.log("Open external map-openExternalMapHandle");
       common_vendor.wx$1.openLocation(__spreadProps(__spreadValues({}, params), {
         // latitude, //经度
         // longitude, //维度
@@ -169,7 +169,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
               // latitude: 40.22077
             });
             if (res.data.status === config_constEnums.OrderStatus.ACCEPTED) {
-              console.log("司机位置->开始位置的地图");
+              console.log("Driver location -> map of starting location");
               takeCarInfo.setCarTo({
                 address: res.data.startLocation,
                 longitude: res.data.startPointLongitude,
@@ -177,55 +177,55 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
               });
               yield takeCarInfo.driversPickUpPassengersRoutePlan();
             } else {
-              console.log("出发位置->结束位置的地图");
+              console.log("Map of starting location -> ending location");
               yield takeCarInfo.routePlan(2);
             }
           }),
           fail: (err) => {
-            console.log("设置司机位置信息--getLocation", err);
+            console.log("Set driver location information--getLocation", err);
           }
         });
       });
     }
     const queryOrderStatusParams = {
       WAITING_ACCEPT: () => {
-        console.log("等待接单");
+        console.log("Waiting for orders");
       },
-      // 接单成功
+      // 接单成功   Order successfully received
       ACCEPTED: () => __async(this, null, function* () {
-        console.log("接单成功");
+        console.log(" ");
       }),
-      // 司机到达代驾位置
+      // 司机到达代驾位置   The driver has arrived
       DRIVER_ARRIVED: () => __async(this, null, function* () {
-        console.log("司机已到达");
+        console.log("The driver has arrived");
       }),
-      // 更新车辆信息
+      // 更新车辆信息   Update vehicle information
       UPDATE_CART_INFO: () => {
-        console.log("更新车辆信息");
+        console.log("Update vehicle information");
       },
-      // 开始服务
+      // 开始服务   Start service
       START_SERVICE: () => {
-        console.log("开始服务");
+        console.log("Start service");
         takeCarInfo.querySendRecord();
       },
-      // 结束服务
+      // 结束服务   End of service
       END_SERVICE: () => {
-        console.log("结束服务");
+        console.log("End of service");
         reachTheEndingPointHandle();
       },
-      //  代付款
+      //  代付款  Payment
       UNPAID: () => {
         reachTheEndingPointHandle();
         console.log("代付款");
       },
-      // 已付款
+      // 已付款  Paid
       PAID: () => {
-        console.log("已付款");
+        console.log("Paid");
         reachTheEndingPointHandle();
       },
-      // 取消订单
+      // 取消订单  Cancellation of order
       CANCEL_ORDER: () => {
-        console.log("取消订单");
+        console.log("Cancellation of order");
       }
     };
     function queryOrderStatusHandle() {

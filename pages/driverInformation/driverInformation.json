@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "基本信息",
+  "navigationBarTitleText": "Basic Information",
   "usingComponents": {
     "upload-images": "../../components/upload-images/upload-images",
     "tm-form-item": "../../tmui/components/tm-form-item/tm-form-item",

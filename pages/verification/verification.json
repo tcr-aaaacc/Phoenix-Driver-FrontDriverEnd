@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "验证",
+  "navigationBarTitleText": "verify",
   "usingComponents": {
     "ocr-upload": "../../components/ocr-upload/ocr-upload",
     "tm-form-item": "../../tmui/components/tm-form-item/tm-form-item",

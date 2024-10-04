@@ -1,5 +1,5 @@
 {
-  "description": "项目配置文件。",
+  "description": "Project configuration file.",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -39,42 +39,42 @@
       "current": 0,
       "list": [
         {
-          "name": "测试页-首页",
+          "name": "Test Page - Home Page",
           "id": 0,
           "pathName": "pages/index/index"
         },
         {
-          "name": "测试页-个人中心",
+          "name": "测Test Page - Personal Center",
           "id": 1,
           "pathName": "pages/userCenter/userCenter"
         },
         {
-          "name": "测试页-确认订单",
+          "name": "Test page-confirm order",
           "id": 2,
           "pathName": "pages/creatOrder/creatOrder"
         },
         {
-          "name": "测试页-订单列表",
+          "name": "Test page-order list",
           "id": 3,
           "pathName": "pages/orderList/orderList"
         },
         {
-          "name": "测试页-订单详情",
+          "name": "Test page-order details",
           "id": 4,
           "pathName": "pages/orderDetail/orderDetail"
         },
         {
-          "name": "测试页-登陆",
+          "name": "Test Page-Login",
           "id": 5,
           "pathName": "pages/login/login"
         },
         {
-          "name": "测试页-基本信息",
+          "name": "Test page-basic information",
           "id": 6,
           "pathName": "pages/driverInformation/driverInformation"
         },
         {
-          "name": "测试页-上传车辆信息",
+          "name": "Test page-upload vehicle information",
           "id": 7,
           "pathName": "pages/collectCarInfo/collectCarInfo"
         }

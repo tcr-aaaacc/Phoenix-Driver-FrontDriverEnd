@@ -17,50 +17,50 @@ var OrderStatus = /* @__PURE__ */ ((OrderStatus2) => {
 })(OrderStatus || {});
 const OrderStatusMap = [
   {
-    label: "等待接单",
+    label: "Waiting for orders",
     value: 1
     /* WAITING_ACCEPT */
   },
   {
-    label: "已接单",
+    label: "Order received",
     value: 2
     /* ACCEPTED */
   },
   {
-    label: "司机已到达",
+    label: "The driver has arrived",
     value: 3
     /* DRIVER_ARRIVED */
   },
   {
-    label: "更新代驾车辆信息",
+    label: "Update designated driver vehicle information",
     value: 4
     /* UPDATE_CART_INFO */
   },
   {
-    label: "开始服务",
+    label: "Start service",
     value: 5
     /* START_SERVICE */
   },
   // 结束代驾服务更新订单账单
   {
-    label: "结束服务",
+    label: "End of service",
     value: 6
     /* END_SERVICE */
   },
   // 司机发送账单信息
   {
-    label: "待付款",
+    label: "Payment pending",
     value: 7
     /* UNPAID */
   },
   // 乘客付款成功-》订单结束
   {
-    label: "已付款",
+    label: "Paid",
     value: 8
     /* PAID */
   },
   {
-    label: "系统取消订单",
+    label: "System cancels order",
     value: -1
     /* CANCEL_ORDER */
   }

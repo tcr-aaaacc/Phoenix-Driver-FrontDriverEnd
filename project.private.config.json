@@ -8,14 +8,14 @@
     "miniprogram": {
       "list": [
         {
-          "name": "测试页-订单详情",
+          "name": "Test page-order details",
           "pathName": "pages/orderDetail/orderDetail",
           "query": "orderId=7",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "测试页-首页",
+          "name": "Test Page - Home Page",
           "pathName": "pages/index/index",
           "query": ""
         },
@@ -25,27 +25,27 @@
           "query": ""
         },
         {
-          "name": "测试页-确认订单",
+          "name": "Test page-confirm order",
           "pathName": "pages/creatOrder/creatOrder",
           "query": ""
         },
         {
-          "name": "测试页-订单列表",
+          "name": "Test page-order list",
           "pathName": "pages/orderList/orderList",
           "query": ""
         },
         {
-          "name": "测试页-登陆",
+          "name": "Test Page-Login",
           "pathName": "pages/login/login",
           "query": ""
         },
         {
-          "name": "测试页-基本信息",
+          "name": "Test page-basic information",
           "pathName": "pages/driverInformation/driverInformation",
           "query": ""
         },
         {
-          "name": "测试页-上传车辆信息",
+          "name": "Test page-upload vehicle information",
           "pathName": "pages/collectCarInfo/collectCarInfo",
           "query": ""
         }

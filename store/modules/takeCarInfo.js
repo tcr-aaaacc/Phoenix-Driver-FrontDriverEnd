@@ -83,53 +83,53 @@ const useTakeCarInfoStore = common_vendor.defineStore({
         orderCount: 0,
         score: 0
       },
-      // 存放查询司机位置的轮询定时器实例:司机位置->出发位置
+      // 存放查询司机位置的轮询定时器实例:司机位置->出发位置  Stores the polling timer instance for querying the driver's location: driver location -> departure location
       timer: null,
-      // 出发地
+      // 出发地  Departure
       from: {
         address: "",
         longitude: 0,
         latitude: 0
       },
-      // 目的地
+      // 目的地  destination
       to: {
         address: "",
         longitude: 0,
         latitude: 0
       },
-      // 路线信息
+      // 路线信息  Route Information
       RouteInfo: {
-        // 路线规划
+        // 路线规划  Route Planning
         polyline: [],
-        // 路线距离 方案整体距离（米）
+        // 路线距离 方案整体距离（米）  Route distance Overall distance of the plan (meters)
         distance: 0,
-        // 路线时间 方案估算时间（分钟）
+        // 路线时间 方案估算时间（分钟）  Route time Estimated time for the solution (minutes)
         duration: 0,
-        // 路线标记点
+        // 路线标记点  Route markers
         markers: []
       }
     },
     orderCount3: 0,
-    //   订单相关信息
+    //   订单相关信息  Order related information
     orderInfo: {
-      // 存放查询订单状态的轮询定时器实例
+      // 存放查询订单状态的轮询定时器实例  Stores the polling timer instance for querying order status
       timer: null,
-      // 订单id
+      // 订单id  Order ID
       orderId: 0,
-      // 订单状态
+      // 订单状态  Order Status
       orderStatus: 0
     }
   }),
   actions: {
-    // 设置订单id
+    // 设置订单id  Set order id
     setOrderId(orderId) {
       this.orderInfo.orderId = orderId;
     },
-    // 设置订单状态
+    // 设置订单状态  Set order status
     setOrderStatus(orderStatus) {
       this.orderInfo.orderStatus = orderStatus;
     },
-    // 重置订单相关信息
+    // 重置订单相关信息  Reset order related information
     resetOrderInfo() {
       this.stopQueryOrderStatus();
       this.orderInfo = {
@@ -138,20 +138,20 @@ const useTakeCarInfoStore = common_vendor.defineStore({
         orderStatus: 0
       };
     },
-    // 设置出发地
+    // 设置出发地  Set departure point
     setFrom(from) {
       this.from = from;
     },
-    // 设置目的地
+    // 设置目的地  Set destination
     setTo(to) {
       this.to = to;
     },
-    // 设置出发地和目的地
+    // 设置出发地和目的地  Set your departure and destination
     setFromAndTo(position) {
       this.from = position.from;
       this.to = position.to;
     },
-    // 重置出发地
+    // 重置出发地  Reset departure point
     resetFrom() {
       this.from = {
         address: "",
@@ -159,7 +159,7 @@ const useTakeCarInfoStore = common_vendor.defineStore({
         latitude: 0
       };
     },
-    // 重置目的地
+    // 重置目的地  Reset Destination
     resetTo() {
       this.to = {
         address: "",
@@ -167,34 +167,35 @@ const useTakeCarInfoStore = common_vendor.defineStore({
         latitude: 0
       };
     },
-    // 重置出发地和目的地
-    resetFromAndTo() {
+    // 重置出发地和目的地  Reset origin and destination
+    resetFromAndTo() { 
       this.resetFrom();
       this.resetTo();
     },
-    // 设置路线信息
+    // 设置路线信息  Set route information
     setRouteInfo(RouteInfo) {
       this.RouteInfo = RouteInfo;
     },
-    // 重置路线信息
+    // 重置路线信息  Reset route information
     resetRouteInfo() {
       this.RouteInfo = {
-        // 路线规划
+        // 路线规划  Route Planning
         polyline: [],
-        // 路线距离 方案整体距离（KM）
+        // 路线距离 方案整体距离（KM）  Route distance Overall distance of the plan (KM)
         distance: 0,
-        // 路线时间 方案估算时间（分钟）
+        // 路线时间 方案估算时间（分钟） Route time Estimated time for the solution (minutes)
         duration: 0,
-        // 路线标记点
+        // 路线标记点  Route markers
         markers: []
       };
     },
-    // 重置出发地和目的地以及路线信息
+    // 重置出发地和目的地以及路线信息  Reset departure and destination and route information
     resetFromAndToAndRouteInfo() {
       this.resetFromAndTo();
       this.resetRouteInfo();
     },
-    // 路径规划 type 1:出发地->目的地 startImgUrl 2:司机位置->目的地 carImgUrl
+    // 路径规划 type 1:出发地->目的地 startImgUrl 2:司机位置->目的地 carImgUrl      
+    // Route planning type 1: departure location->destination startImgUrl 2: driver location->destination carImgUrl
     routePlan(type = 1) {
       return __async(this, null, function* () {
         const { from, to } = this;
@@ -251,11 +252,11 @@ const useTakeCarInfoStore = common_vendor.defineStore({
         console.log("this.RouteInfo", this.RouteInfo);
       });
     },
-    //   设置乘坐的车辆信息
+    //   设置乘坐的车辆信息  Set the vehicle information
     setCarInfo(carInfo) {
       this.carInfo = carInfo;
     },
-    // 重置乘坐的车辆信息
+    // 重置乘坐的车辆信息  Reset the vehicle information
     resetCarInfo() {
       this.carInfo = {
         timer: null,
@@ -268,48 +269,49 @@ const useTakeCarInfoStore = common_vendor.defineStore({
           orderCount: 0,
           score: 0
         },
-        // 出发地
+        // 出发地  Departure
         from: {
           address: "",
           longitude: 0,
           latitude: 0
         },
-        // 目的地
+        // 目的地  destination
         to: {
           address: "",
           longitude: 0,
           latitude: 0
         },
-        // 路线信息
+        // 路线信息  Route Information
         RouteInfo: {
-          // 路线规划
+          // 路线规划  Route Planning
           polyline: [],
-          // 路线距离 方案整体距离（米）
+          // 路线距离 方案整体距离（米） Route distance Overall distance of the plan (meters)
           distance: 0,
-          // 路线时间 方案估算时间（分钟）
+          // 路线时间 方案估算时间（分钟） Route time Estimated time for the solution (minutes)
           duration: 0,
-          // 路线标记点
+          // 路线标记点  Route markers
           markers: []
         }
       };
     },
-    //   设置乘坐的车辆信息
+    //   设置乘坐的车辆信息  Set the vehicle information
     setCarRouteInfo(RouteInfo) {
       this.carInfo.RouteInfo = RouteInfo;
     },
-    // 设置司机信息
+    // 设置司机信息  Set driver information
     setCarDriverInfo(driverInfo) {
       this.carInfo.driverInfo = driverInfo;
     },
-    // 设置司机出发地
+    // 设置司机出发地  Set the driver's departure location
     setCarFrom(from) {
       this.carInfo.from = from;
     },
-    // 设置司机目的地
+    // 设置司机目的地  Set driver destination
     setCarTo(to) {
       this.carInfo.to = to;
     },
     // 上传位置，更新当前位置 type 0:根据订单状态自动判断type为1还是2 1:司机位置->出发地  2:司机位置->目的地 不传递
+    // Upload location, update current location type 0: Automatically determine whether type is 1 or 2 based on order status 1: Driver location -> departure location 2: Driver location -> destination Not passed
     updateLocation(type = 0) {
       return __async(this, null, function* () {
         if (type === 0) {
@@ -368,14 +370,14 @@ const useTakeCarInfoStore = common_vendor.defineStore({
         });
       });
     },
-    // 查询订单状态
+    // 查询订单状态  Check order status
     getOrderStatusHandle() {
       return __async(this, null, function* () {
         const res = yield api_order_index.getOrderStatus(this.orderInfo.orderId);
         this.setOrderStatus(res.data);
       });
     },
-    // 轮询查询订单状态
+    // 轮询查询订单状态   Poll to check order status
     queryOrderStatus() {
       return __async(this, arguments, function* (settingCallback = {}) {
         if (this.orderInfo.timer)
@@ -461,11 +463,11 @@ const useTakeCarInfoStore = common_vendor.defineStore({
     },
     stopQueryOrderStatus() {
       var _a;
-      console.log("停止轮询订单状态--------stopQueryOrderStatus");
+      console.log("Stop polling order status--------stopQueryOrderStatus");
       (_a = this.orderInfo.timer) == null ? void 0 : _a.stop();
       this.orderInfo.timer = null;
     },
-    // 轮询创建定时器，发送录音
+    // Poll to create a timer and send a recording
     querySendRecord() {
       return __async(this, null, function* () {
         if (this.recordTimer)
@@ -507,7 +509,7 @@ const useTakeCarInfoStore = common_vendor.defineStore({
       (_a = this.recordTimer) == null ? void 0 : _a.stop();
       this.recordTimer = null;
     },
-    //   规划司机接乘客路径CarInfo
+    //   规划司机接乘客路径CarInfo     Plan the driver's route to pick up passengersCarInfo
     driversPickUpPassengersRoutePlan() {
       return __async(this, null, function* () {
         const from = this.carInfo.from;

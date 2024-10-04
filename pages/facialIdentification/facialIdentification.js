@@ -103,7 +103,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         b: common_vendor.p({
           shadow: 0,
           text: true,
-          label: "点击进行人脸识别",
+          label: "Click to perform face recognition",
           block: true
         }),
         c: common_vendor.o(imageToBase64),

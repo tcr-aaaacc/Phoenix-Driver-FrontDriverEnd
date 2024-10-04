@@ -64,24 +64,24 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       const res = yield api_order_index.getOrderDetail(id);
       orderDetail.value = res.data;
       descriptionsList.value = [
-        { label: "里程费", value: ((_a = res.data.orderBillVo) == null ? void 0 : _a.distanceFee) || 0 },
-        { label: "等时费用", value: ((_b = res.data.orderBillVo) == null ? void 0 : _b.waitFee) || 0 },
-        { label: "路桥费", value: ((_c = res.data.orderBillVo) == null ? void 0 : _c.tollFee) || 0 },
-        { label: "停车费", value: ((_d = res.data.orderBillVo) == null ? void 0 : _d.parkingFee) || 0 },
-        { label: "其他费用", value: ((_e = res.data.orderBillVo) == null ? void 0 : _e.otherFee) || 0 },
-        { label: "远程费", value: ((_f = res.data.orderBillVo) == null ? void 0 : _f.longDistanceFee) || 0 },
-        { label: "顾客好处费", value: ((_g = res.data.orderBillVo) == null ? void 0 : _g.favourFee) || 0 },
-        { label: "系统奖励费", value: ((_h = res.data.orderBillVo) == null ? void 0 : _h.rewardFee) || 0 },
-        { label: "总费用", value: ((_i = res.data.orderBillVo) == null ? void 0 : _i.totalAmount) || 0 },
-        { label: "优惠券金额", value: -((_j = res.data.orderBillVo) == null ? void 0 : _j.couponAmount) || 0 },
-        { label: "应收总费用", value: ((_k = res.data.orderBillVo) == null ? void 0 : _k.payAmount) || 0 }
+        { label: "Mileage Fees", value: ((_a = res.data.orderBillVo) == null ? void 0 : _a.distanceFee) || 0 },
+        { label: "Waiting time fee", value: ((_b = res.data.orderBillVo) == null ? void 0 : _b.waitFee) || 0 },
+        { label: "Tolls", value: ((_c = res.data.orderBillVo) == null ? void 0 : _c.tollFee) || 0 },
+        { label: "Parking Fee", value: ((_d = res.data.orderBillVo) == null ? void 0 : _d.parkingFee) || 0 },
+        { label: "Other expenses", value: ((_e = res.data.orderBillVo) == null ? void 0 : _e.otherFee) || 0 },
+        { label: "Remote Fees", value: ((_f = res.data.orderBillVo) == null ? void 0 : _f.longDistanceFee) || 0 },
+        { label: "Customer Benefits", value: ((_g = res.data.orderBillVo) == null ? void 0 : _g.favourFee) || 0 },
+        { label: "System incentive fee", value: ((_h = res.data.orderBillVo) == null ? void 0 : _h.rewardFee) || 0 },
+        { label: "Total cost", value: ((_i = res.data.orderBillVo) == null ? void 0 : _i.totalAmount) || 0 },
+        { label: "Coupon amount", value: -((_j = res.data.orderBillVo) == null ? void 0 : _j.couponAmount) || 0 },
+        { label: "Total fees receivable", value: ((_k = res.data.orderBillVo) == null ? void 0 : _k.payAmount) || 0 }
       ];
       profitShareList.value = [
-        { label: "分账状态", value: ((_l = res.data.orderProfitsharingVo) == null ? void 0 : _l.status) === 1 ? "未分账" : "已分账" },
-        { label: "微信平台费用", value: (((_m = res.data.orderProfitsharingVo) == null ? void 0 : _m.paymentFee) || 0) + "元" },
-        { label: "代缴税费", value: (((_n = res.data.orderProfitsharingVo) == null ? void 0 : _n.driverTaxFee) || 0) + "元" },
-        { label: "平台分账收入", value: (((_o = res.data.orderProfitsharingVo) == null ? void 0 : _o.platformIncome) || 0) + "元" },
-        { label: "司机分账收入", value: (((_p = res.data.orderProfitsharingVo) == null ? void 0 : _p.driverIncome) || 0) + "元" }
+        { label: "Account split status", value: ((_l = res.data.orderProfitsharingVo) == null ? void 0 : _l.status) === 1 ? "Undivided" : "Settled" },
+        { label: "WeChat platform fees", value: (((_m = res.data.orderProfitsharingVo) == null ? void 0 : _m.paymentFee) || 0) + "AUD" },
+        { label: "Tax payment", value: (((_n = res.data.orderProfitsharingVo) == null ? void 0 : _n.driverTaxFee) || 0) + " AUD" },
+        { label: "Platform revenue sharing", value: (((_o = res.data.orderProfitsharingVo) == null ? void 0 : _o.platformIncome) || 0) + "元" },
+        { label: "Drivers’ income sharing", value: (((_p = res.data.orderProfitsharingVo) == null ? void 0 : _p.driverIncome) || 0) + "AUD" }
       ];
     });
     const handleReturn = () => __async(this, null, function* () {
@@ -91,7 +91,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       console.log("pushOrderHandle--");
       yield api_order_index.sendOrderBillInfo(props.orderId);
       yield common_vendor.index.showToast({
-        title: "推送账单成功",
+        title: "Push bill successfully",
         icon: "success",
         duration: 2e3
       });
@@ -99,12 +99,12 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     function collectMoney() {
       setTimeout(() => {
         common_vendor.index.showToast({
-          title: "收款成功",
+          title: "Received successfully",
           icon: "success",
           duration: 2e3
         });
       }, 200);
-      console.log("收款成功");
+      console.log("Received successfully");
     }
     const queryOrderPayStatusFlag = common_vendor.ref(true);
     function queryOrderPayStatusHandle(orderId, times = 100, interval = 2e3, callback = () => collectMoney()) {
@@ -112,20 +112,20 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         if (!queryOrderPayStatusFlag.value)
           return;
         try {
-          console.log("轮询查询订单支付状态---start");
+          console.log("Poll to check order payment status---start");
           const res = yield api_order_index.getOrderStatus(orderId);
           orderDetail.value.status = res.data;
           if (res.data === config_constEnums.OrderStatus.PAID) {
             callback();
           } else {
             if (times > 1) {
-              console.log("查询收款信息失败，继续查询-----------", times);
+              console.log("Failed to query the payment information, continue to query-----------", times);
               setTimeout(() => {
                 queryOrderPayStatusHandle(orderId, times - 1, interval);
               }, interval);
             } else {
               yield common_vendor.index.showToast({
-                title: "查询收款信息失败",
+                title: "Failed to query payment information",
                 icon: "error",
                 duration: 2e3
               });
@@ -156,13 +156,13 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       }, common_vendor.unref(orderDetail).orderBillVo ? common_vendor.e({
         b: common_vendor.t(common_vendor.unref(config_constEnums.getLabelByValue)(common_vendor.unref(config_constEnums.OrderStatusMap), common_vendor.unref(orderDetail).status)),
         c: common_vendor.t(common_vendor.unref(orderDetail).startLocation),
-        d: common_vendor.t("出发地"),
+        d: common_vendor.t("Departure"),
         e: common_vendor.p({
           margin: [0, 0],
           titleFontSize: 30
         }),
         f: common_vendor.t(common_vendor.unref(orderDetail).endLocation),
-        g: common_vendor.t("目的地"),
+        g: common_vendor.t("Destination"),
         h: common_vendor.p({
           margin: [0, 0],
           titleFontSize: 30
@@ -210,7 +210,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           fontSize: 35,
           shadow: 0,
           size: "middle",
-          label: "返回"
+          label: "Back"
         }),
         p: common_vendor.unref(orderDetail).status === common_vendor.unref(config_constEnums.OrderStatus).END_SERVICE
       }, common_vendor.unref(orderDetail).status === common_vendor.unref(config_constEnums.OrderStatus).END_SERVICE ? {
@@ -221,7 +221,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           fontSize: 35,
           shadow: 0,
           size: "middle",
-          label: "推送账单"
+          label: "Push bill"
         })
       } : {}) : {});
     };

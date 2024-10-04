@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "人脸识别",
+  "navigationBarTitleText": "Face Recognition",
   "usingComponents": {
     "tm-icon": "../../tmui/components/tm-icon/tm-icon",
     "tm-button": "../../tmui/components/tm-button/tm-button",

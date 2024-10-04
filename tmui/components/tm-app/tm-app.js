@@ -259,7 +259,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         osChangeTheme(ev.theme);
       });
     } catch (error) {
-      console.warn("没有主题切换功能：", error);
+      console.warn("No theme switching feature:", error);
     }
     function osChangeTheme(ev) {
       if (!store.tmuiConfig.autoDark)

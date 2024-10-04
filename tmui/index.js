@@ -37,7 +37,7 @@ const pages$1 = [
   {
     path: "pages/index/index",
     style: {
-      navigationBarTitleText: "首页",
+      navigationBarTitleText: " Home",
       navigationStyle: "custom",
       titlePenetrate: "YES"
     }
@@ -45,55 +45,55 @@ const pages$1 = [
   {
     path: "pages/userCenter/userCenter",
     style: {
-      navigationBarTitleText: "个人中心"
+      navigationBarTitleText: "Personal Center"
     }
   },
   {
     path: "pages/creatOrder/creatOrder",
     style: {
-      navigationBarTitleText: "确认下单"
+      navigationBarTitleText: "Confirm order"
     }
   },
   {
     path: "pages/orderList/orderList",
     style: {
-      navigationBarTitleText: "订单列表"
+      navigationBarTitleText: "Oder List"
     }
   },
   {
     path: "pages/orderDetail/orderDetail",
     style: {
-      navigationBarTitleText: "订单详情"
+      navigationBarTitleText: "Order Detail"
     }
   },
   {
     path: "pages/login/login",
     style: {
-      navigationBarTitleText: "登陆"
+      navigationBarTitleText: " Login"
     }
   },
   {
     path: "pages/driverInformation/driverInformation",
     style: {
-      navigationBarTitleText: "基本信息"
+      navigationBarTitleText: "Information"
     }
   },
   {
     path: "pages/collectCarInfo/collectCarInfo",
     style: {
-      navigationBarTitleText: "上传车辆信息"
+      navigationBarTitleText: "Upload vehicle information"
     }
   },
   {
     path: "pages/verification/verification",
     style: {
-      navigationBarTitleText: "验证"
+      navigationBarTitleText: "verify"
     }
   },
   {
     path: "pages/facialIdentification/facialIdentification",
     style: {
-      navigationBarTitleText: "人脸识别"
+      navigationBarTitleText: "Face Recognition"
     }
   }
 ];
@@ -122,23 +122,23 @@ const condition = {
   current: 0,
   list: [
     {
-      name: "测试页-首页",
+      name: "Test Page - Home Page",
       path: "pages/index/index"
     },
     {
-      name: "测试页-个人中心",
+      name: "Test Page-Personal Center",
       path: "pages/userCenter/userCenter"
     },
     {
-      name: "测试页-确认订单",
+      name: "Test page-confirm order",
       path: "pages/creatOrder/creatOrder"
     },
     {
-      name: "测试页-订单列表",
+      name: "Test page-order list",
       path: "pages/orderList/orderList"
     },
     {
-      name: "测试页-订单详情",
+      name: "Test page-order details",
       path: "pages/orderDetail/orderDetail"
     },
     {
@@ -146,11 +146,11 @@ const condition = {
       path: "pages/login/login"
     },
     {
-      name: "测试页-基本信息",
+      name: "Test page-basic information",
       path: "pages/driverInformation/driverInformation"
     },
     {
-      name: "测试页-上传车辆信息",
+      name: "Test page-upload vehicle information",
       path: "pages/collectCarInfo/collectCarInfo"
     }
   ]

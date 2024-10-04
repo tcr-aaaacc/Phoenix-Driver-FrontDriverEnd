@@ -131,7 +131,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     function goToOtherPage(item) {
       if (item.status === config_constEnums.OrderStatus.CANCEL_ORDER) {
         common_vendor.index.showToast({
-          title: "该订单已取消",
+          title: "Order canceled",
           icon: "none"
         });
       } else if (item.status >= config_constEnums.OrderStatus.UNPAID) {

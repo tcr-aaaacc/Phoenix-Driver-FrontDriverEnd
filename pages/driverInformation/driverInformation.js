@@ -50,20 +50,20 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const formRef = common_vendor.ref();
     const formData = common_vendor.ref({
       avatar: [],
-      // 头像
+      // 头像  image
       phone: "",
-      // 手机号
+      // 手机号  phone number
       idCard: "",
-      // 身份证号码
+      // 身份证号码  ID Number
       carNumber: "",
-      // 车牌
+      // 车牌 Car number
       emergencyContactName: "",
-      // 紧急联系人
+      // 紧急联系人  emergency contact
       emergencyContactPhone: "",
-      // 紧急联系人手机号
+      // 紧急联系人手机号  emergency contact's phone number
       drivingAge: "",
-      // 驾龄
-      // 驾驶证有效期
+      // 驾龄  Driving experience
+      // 驾驶证有效期  Driving license validity period
       drivingLicenseValidity: []
     });
     common_vendor.watch(
@@ -110,11 +110,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }),
         c: common_vendor.p({
           required: true,
-          label: "头像",
+          label: " image",
           field: "avatar",
           rules: {
             required: true,
-            message: "请上传头像"
+            message: "Please upload an image"
           }
         }),
         d: common_vendor.o(common_vendor.m(($event) => common_vendor.unref(formData).phone = $event, {
@@ -123,23 +123,23 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         e: common_vendor.p({
           inputPadding: [0, 0],
           type: "idCard",
-          placeholder: "请输入手机号",
+          placeholder: "Please enter your phone number",
           transprent: true,
           showBottomBotder: false,
           modelValue: common_vendor.unref(formData).phone
         }),
         f: common_vendor.p({
           required: true,
-          label: "手机号",
+          label: "Phone number",
           showError: true,
           field: "phone",
           rules: [{
             required: true,
-            message: "不能为空",
+            message: "Cannot be empty",
             validator: (val) => val.length > 0
           }, {
             required: true,
-            message: "请输入正确的手机号",
+            message: "Please enter a valid phone number",
             validator: (val) => common_vendor.unref(utils_validate.mobile)(val)
           }]
         }),
@@ -149,23 +149,23 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         h: common_vendor.p({
           inputPadding: [0, 0],
           type: "idCard",
-          placeholder: "请输入身份证号码",
+          placeholder: "Please enter your ID number",
           transprent: true,
           showBottomBotder: false,
           modelValue: common_vendor.unref(formData).idCard
         }),
         i: common_vendor.p({
           required: true,
-          label: "身份证号码",
+          label: "ID number",
           showError: true,
           field: "idCard",
           rules: [{
             required: true,
-            message: "不能为空",
+            message: "Cannot be empty",
             validator: (val) => val.length > 0
           }, {
             required: true,
-            message: "请输入正确的身份证号",
+            message: "Please enter a valid ID number",
             validator: (val) => common_vendor.unref(utils_validate.idCard)(val)
           }]
         }),
@@ -174,23 +174,23 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }, true)),
         k: common_vendor.p({
           inputPadding: [0, 0],
-          placeholder: "请输入车牌号",
+          placeholder: "Please enter the license plate number",
           transprent: true,
           showBottomBotder: false,
           modelValue: common_vendor.unref(formData).carNumber
         }),
         l: common_vendor.p({
           required: true,
-          label: "车牌号",
+          label: "License plate number",
           showError: true,
           field: "carNumber",
           rules: [{
             required: true,
-            message: "不能为空",
+            message: "Cannot be empty",
             validator: (val) => val.length > 0
           }, {
             required: true,
-            message: "请输入正确的车牌号",
+            message: "Please enter the correct license plate number",
             validator: (val) => common_vendor.unref(utils_validate.carNo)(val)
           }]
         }),
@@ -199,19 +199,19 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }, true)),
         n: common_vendor.p({
           inputPadding: [0, 0],
-          placeholder: "请输入紧急联系人姓名",
+          placeholder: "Please enter the name of the emergency contact",
           transprent: true,
           showBottomBotder: false,
           modelValue: common_vendor.unref(formData).emergencyContactName
         }),
         o: common_vendor.p({
           required: true,
-          label: "紧急联系人",
+          label: "Emergency Contacts",
           showError: true,
           field: "emergencyContactName",
           rules: [{
             required: true,
-            message: "不能为空",
+            message: "Cannot be empty",
             validator: (val) => val.length > 0
           }]
         }),
@@ -221,23 +221,23 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         q: common_vendor.p({
           inputPadding: [0, 0],
           type: "number",
-          placeholder: "请输入紧急联系人手机号",
+          placeholder: "Please enter the emergency contact phone number",
           transprent: true,
           showBottomBotder: false,
           modelValue: common_vendor.unref(formData).emergencyContactPhone
         }),
         r: common_vendor.p({
           required: true,
-          label: "紧急联系人手机号",
+          label: "Emergency contact phone number",
           showError: true,
           field: "emergencyContactPhone",
           rules: [{
             required: true,
-            message: "不能为空",
+            message: "Cannot be empty",
             validator: (val) => val.length > 0
           }, {
             required: true,
-            message: "请输入正确的手机号",
+            message: "Please enter a valid phone number",
             validator: (val) => common_vendor.unref(utils_validate.mobile)(val)
           }]
         }),
@@ -246,7 +246,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }, true)),
         t: common_vendor.p({
           inputPadding: [0, 0],
-          placeholder: "请输入驾龄",
+          placeholder: "Please enter your driving experience",
           type: "number",
           suffixLabel: "年",
           transprent: true,
@@ -255,20 +255,20 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }),
         v: common_vendor.p({
           required: true,
-          label: "驾龄",
+          label: "Driving experience",
           showError: true,
           field: "drivingAge",
           rules: [{
             required: true,
-            message: "不能为空",
+            message: "Cannot be empty",
             validator: (val) => val.length > 0
           }, {
             required: true,
-            message: "请输入正确的驾龄",
+            message: "Please enter the correct driving experience.",
             validator: (val) => common_vendor.unref(utils_validate.number)(val) && +val > 0
           }]
         }),
-        w: common_vendor.t(common_vendor.unref(drivingLicenseValidityStr) || "请选择时间"),
+        w: common_vendor.t(common_vendor.unref(drivingLicenseValidityStr) || "Please select a time"),
         x: common_vendor.p({
           userInteractionEnabled: false,
           ["font-size"]: 24,
@@ -294,20 +294,20 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }),
         F: common_vendor.p({
           required: true,
-          label: "驾驶证有效期",
+          label: "Driving license validity period",
           field: "drivingLicenseValidity",
           rules: [{
             required: true,
-            message: "请选择驾驶证有效期"
+            message: "Please select the validity period of your driver's license"
           }, {
             required: true,
-            message: "请选择起止日期",
+            message: "Please select the start and end date",
             validator: (val) => val[0] && val[1]
           }]
         }),
         G: common_vendor.p({
           ["form-type"]: "submit",
-          label: "提交表单",
+          label: "Submit the form",
           block: true
         }),
         H: common_vendor.p({

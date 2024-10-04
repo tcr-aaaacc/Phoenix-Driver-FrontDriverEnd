@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "上传车辆信息",
+  "navigationBarTitleText": "Upload vehicle information",
   "usingComponents": {
     "upload-images": "../../components/upload-images/upload-images",
     "tm-form-item": "../../tmui/components/tm-form-item/tm-form-item",
