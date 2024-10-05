@@ -48,7 +48,7 @@
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "Your location information will be used for mini program positioning"
+      "desc": "Location used for positioning"
     }
   },
   "requiredPrivateInfos": [
